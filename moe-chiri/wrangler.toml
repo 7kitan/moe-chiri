@@ -1,0 +1,4 @@
+name = "moe-chiri"
+main = "src/worker.js"
+workers_dev = false
+compatibility_date = "2025-07-31"
