@@ -4,7 +4,7 @@ export const themeConfig: ThemeConfig = {
   // SITE INFO ///////////////////////////////////////////////////////////////////////////////////////////
   site: {
     website: 'https://astro-chiri.netlify.app/', // Site domain
-    title: 'Moe-Chiri!', // Site title
+    title: 'Moe-Chiri! ✿ ✿ ✿', // Site title
     author: 'Kitan', // Author name
     description: 'Blog from an overthinking elf', // Site description
     language: 'en-US' // Default language
