@@ -1,57 +1,43 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
+import BasePage from "../layouts/BasePage.astro";
 
 const entries = await getCollection("art");
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead title="Art — Kitan" />
-    </head>
-    <body>
-        <Header />
+<BasePage title="Art — Kitan">
+    <h1>Art</h1>
+    <div class="about">
+        <p>stuff I draw</p>
+    </div>
 
-        <h1>Art</h1>
-        <div class="about">
-            <p>stuff I draw</p>
-        </div>
-
-        {
-            entries.length > 0 ? (
-                <div class="grid">
-                    {entries.map((entry) => (
-                        <a href="#">
-                            <img
-                                src={entry.data.imageUrl}
-                                alt={entry.data.title}
-                                loading="lazy"
-                            />
-                            <p class="caption">
-                                {entry.data.title}{" "}
-                                <span class="year">
-                                    — {entry.data.artist}, {entry.data.year}
-                                </span>
-                            </p>
-                            {entry.data.note && (
-                                <p class="note">{entry.data.note}</p>
-                            )}
-                        </a>
-                    ))}
-                </div>
-            ) : (
-                <p>Nothing here yet!</p>
-            )
-        }
-
-        <Footer />
-        <ThemeToggle />
-    </body>
-</html>
+    {
+        entries.length > 0 ? (
+            <div class="grid">
+                {entries.map((entry) => (
+                    <a href="#">
+                        <img
+                            src={entry.data.imageUrl}
+                            alt={entry.data.title}
+                            loading="lazy"
+                        />
+                        <p class="caption">
+                            {entry.data.title}{" "}
+                            <span class="year">
+                                — {entry.data.artist}, {entry.data.year}
+                            </span>
+                        </p>
+                        {entry.data.note && (
+                            <p class="note">{entry.data.note}</p>
+                        )}
+                    </a>
+                ))}
+            </div>
+        ) : (
+            <p>Nothing here yet!</p>
+        )
+    }
+</BasePage>
 
 <style>
     .grid {

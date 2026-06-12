@@ -1,43 +1,29 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
+import BasePage from "../layouts/BasePage.astro";
 
 const projects = await getCollection("code");
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead title="Code - Kitan" />
-    </head>
-    <body>
-        <Header />
+<BasePage title="Code - Kitan">
+    <h1>Code</h1>
+    <div class="about">
+        <p>really bad at writing code</p>
+    </div>
 
-        <h1>Code</h1>
-        <div class="about">
-            <p>really bad at writing code</p>
-        </div>
-
-        <ul class="list">
-            {
-                projects.map((project) => (
-                    <li>
-                        <a href={project.data.url || "#"}>
-                            <span class="l-title">{project.data.title}</span>
-                            <span class="l-tags">{project.data.tags}</span>
-                        </a>
-                    </li>
-                ))
-            }
-        </ul>
-
-        <Footer />
-        <ThemeToggle />
-    </body>
-</html>
+    <ul class="list">
+        {
+            projects.map((project) => (
+                <li>
+                    <a href={project.data.url || "#"}>
+                        <span class="l-title">{project.data.title}</span>
+                        <span class="l-tags">{project.data.tags}</span>
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</BasePage>
 
 <style>
     .list {

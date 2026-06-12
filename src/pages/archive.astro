@@ -1,9 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
+import BasePage from "../layouts/BasePage.astro";
 import PostList from "../components/PostList.astro";
 
 const posts = (await getCollection("blog")).sort(
@@ -11,19 +8,8 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead title="Archive — Kitan" />
-    </head>
-    <body>
-        <Header />
+<BasePage title="Archive — Kitan">
+    <h1>Archive</h1>
 
-        <h1>Archive</h1>
-
-        <PostList posts={posts} />
-
-        <Footer />
-        <ThemeToggle />
-    </body>
-</html>
+    <PostList posts={posts} />
+</BasePage>

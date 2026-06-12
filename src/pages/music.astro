@@ -1,62 +1,48 @@
 ---
 import { getCollection } from "astro:content";
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
+import BasePage from "../layouts/BasePage.astro";
 
 const releases = await getCollection("music");
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <BaseHead title="Music — Kitan" />
-    </head>
-    <body>
-        <Header />
+<BasePage title="Music — Kitan">
+    <h1>Music</h1>
+    <div class="about">
+        <p>Sure would like to make some Vocaloid...</p>
+    </div>
 
-        <h1>Music</h1>
-        <div class="about">
-            <p>Sure would like to make some Vocaloid...</p>
-        </div>
-
-        {
-            releases.length > 0 ? (
-                releases.map((release) => (
-                    <div class="release">
-                        <div class="entry">
-                            {release.data.embedUrl && (
-                                <div class="video">
-                                    <iframe
-                                        src={release.data.embedUrl}
-                                        title={release.data.title}
-                                        allow="fullscreen"
-                                        loading="lazy"
-                                    />
-                                </div>
-                            )}
-                            <div class="body">
-                                <div class="title">{release.data.title}</div>
-                                <div class="meta">{release.data.year}</div>
-                                <div class="links">
-                                    {release.data.links.map((link) => (
-                                        <a href={link.url}>{link.label}</a>
-                                    ))}
-                                </div>
+    {
+        releases.length > 0 ? (
+            releases.map((release) => (
+                <div class="release">
+                    <div class="entry">
+                        {release.data.embedUrl && (
+                            <div class="video">
+                                <iframe
+                                    src={release.data.embedUrl}
+                                    title={release.data.title}
+                                    allow="fullscreen"
+                                    loading="lazy"
+                                />
+                            </div>
+                        )}
+                        <div class="body">
+                            <div class="title">{release.data.title}</div>
+                            <div class="meta">{release.data.year}</div>
+                            <div class="links">
+                                {release.data.links.map((link) => (
+                                    <a href={link.url}>{link.label}</a>
+                                ))}
                             </div>
                         </div>
                     </div>
-                ))
-            ) : (
-                <p>Nothing here yet!</p>
-            )
-        }
-
-        <Footer />
-        <ThemeToggle />
-    </body>
-</html>
+                </div>
+            ))
+        ) : (
+            <p>Nothing here yet!</p>
+        )
+    }
+</BasePage>
 
 <style>
     .release {
