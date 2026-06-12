@@ -25,20 +25,8 @@
 }
 @font-face {
     font-family: "KitanMono";
-    src: url("/fonts/kitan_mono/KitanMono-Medium.woff2") format("woff2");
-    font-weight: 500;
-    font-style: normal;
-}
-@font-face {
-    font-family: "KitanMono";
     src: url("/fonts/kitan_mono/KitanMono-Italic.woff2") format("woff2");
     font-weight: 400;
-    font-style: italic;
-}
-@font-face {
-    font-family: "KitanMono";
-    src: url("/fonts/kitan_mono/KitanMono-MediumItalic.woff2") format("woff2");
-    font-weight: 500;
     font-style: italic;
 }
 
@@ -49,7 +37,7 @@
     --fs: 0.9375rem;
     --fw-l: 300;
     --fw-r: 400;
-    --fw-b: 500;
+    --fw-b: 400;
     --ss: 0;
     --sm: 0;
     --lh: 1.55;
