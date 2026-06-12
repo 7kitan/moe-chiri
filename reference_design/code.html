@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Code - Kitan</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
+    <link rel="stylesheet" href="oat-fonts.css" />
+    <link rel="stylesheet" href="global.css" />
+    <style>
+        .sub {
+            display: flex;
+            gap: 1.5rem;
+            margin: 0 0 2rem;
+            align-items: flex-start;
+        }
+        .sub .vert {
+            writing-mode: vertical-rl;
+            font-family: var(--m);
+            font-size: 0.625rem;
+            color: var(--a);
+            letter-spacing: 0.15em;
+            line-height: 1.8;
+            flex-shrink: 0;
+        }
+        .sub p {
+            margin: 0;
+            font-size: var(--fs);
+            color: var(--ts);
+            max-width: 28rem;
+            line-height: 1.7;
+        }
+        .list {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        .list li + li {
+            border-top: 1px solid var(--b);
+        }
+        .list a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            text-decoration: none;
+        }
+        .list a:hover .l-title {
+            color: var(--a);
+        }
+        .l-title {
+            font-family: var(--m);
+            font-size: var(--fs);
+            color: var(--t);
+            transition: color 0.12s;
+        }
+        .l-tags {
+            font-family: var(--m);
+            font-size: 0.6875rem;
+            color: var(--ts);
+            flex-shrink: 0;
+        }
+        @media (max-width: 480px) {
+            .list a {
+                flex-wrap: wrap;
+                gap: 0.15rem;
+            }
+            .l-tags {
+                font-size: 0.625rem;
+            }
+        }
+    </style>
+
+    <header>
+        <div class="separator">--- ✿ ---</div>
+        <nav>
+            <a
+                href="index.html"
+                style="
+                    font-family: var(--m);
+                    font-size: 0.8125rem;
+                    color: var(--ts);
+                    text-decoration: none;
+                "
+                >← Back</a
+            >
+            <a href="index.html">Home</a>
+            <a href="music.html">Music</a>
+            <a href="art.html">Art</a>
+        </nav>
+    </header>
+
+    <h1>Code</h1>
+
+    <ul class="list">
+        <li>
+            <a href="#"
+                ><span class="l-title">Oat UI</span
+                ><span class="l-tags">React · TypeScript · 2025–2026</span></a
+            >
+        </li>
+        <li>
+            <a href="#"
+                ><span class="l-title">Chiri</span
+                ><span class="l-tags">Astro · CSS · 2024</span></a
+            >
+        </li>
+        <li>
+            <a href="#"
+                ><span class="l-title">KitanMono</span
+                ><span class="l-tags">Type Design · OpenType · 2025</span></a
+            >
+        </li>
+        <li>
+            <a href="#"
+                ><span class="l-title">Route</span
+                ><span class="l-tags">Rust · CLI · 2024</span></a
+            >
+        </li>
+    </ul>
+
+    <footer>
+        <div class="separator">--- ✿ ---</div>
+        <div class="footer-content">
+            <span>&copy; 2026 Kitan</span>
+            <div class="social-nav">
+                <a href="index.html">Home</a>
+                <a href="music.html">Music</a>
+                <a href="art.html">Art</a>
+            </div>
+        </div>
+        <div class="footer-note">Light: #f8f8f8 | #fa9442 | #2a2d2e</div>
+        <div class="footer-note">Dark: #172713 | #fa9442 | #b5d1cc</div>
+        <div class="footer-note">
+            Fonts: ISO v0.6 | Kitan Mono (Iosevka custom)
+        </div>
+    </footer>
+    <button class="theme-toggle" id="dm" onclick="toggle()">☾</button>
+    <script>
+        const dm = document.getElementById("dm");
+        const h = document.documentElement;
+        if (localStorage.getItem("dark") === "1") h.classList.add("dark");
+        dm.textContent = h.classList.contains("dark") ? "☀" : "☾";
+        function toggle() {
+            h.classList.toggle("dark");
+            dm.textContent = h.classList.contains("dark") ? "☀" : "☾";
+            localStorage.setItem(
+                "dark",
+                h.classList.contains("dark") ? "1" : "0",
+            );
+        }
+    </script>
+</html>

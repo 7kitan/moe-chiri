@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Art — Kitan</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg" />
+    <link rel="stylesheet" href="oat-fonts.css" />
+    <link rel="stylesheet" href="global.css" />
+    <style>
+        :root {
+            --w: 42rem;
+        }
+        .grid {
+            column-count: 2;
+            column-gap: 1.5rem;
+        }
+        .grid a {
+            break-inside: avoid;
+            display: block;
+            margin: 0 0 1.5rem;
+            text-decoration: none;
+        }
+        .grid a:hover {
+            opacity: 0.8;
+        }
+        .grid img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 4px;
+            display: block;
+            background: var(--b);
+        }
+        .grid .caption {
+            margin: 0.5em 0 0;
+            font-family: var(--m);
+            font-size: var(--fs);
+            color: var(--t);
+        }
+        .grid .year {
+            font-size: 0.75rem;
+            color: var(--ts);
+        }
+        .grid .note {
+            margin: 0.35em 0 0;
+            font-size: 0.8125rem;
+            color: var(--ts);
+            line-height: 1.5;
+        }
+    </style>
+
+    <header>
+        <a href="index.html" class="site-title">kitan</a>
+        <div class="separator">--- ✿ ---</div>
+        <nav>
+            <a href="music.html">Music</a>
+            <a href="art.html">Art</a>
+            <a href="portfolio.html">Programming</a>
+            <a href="index.html">Home</a>
+        </nav>
+    </header>
+
+    <h1>Album Art</h1>
+    <div class="about">
+        <p>
+            Some favourite album covers — each a masterclass in visual
+            communication.
+        </p>
+    </div>
+
+    <div class="grid">
+        <a href="#">
+            <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/07/60/ba/0760ba0f-148c-b18f-d0ff-169ee96f3af5/634904078164.png/600x600bb.jpg"
+                alt="OK Computer"
+                loading="lazy"
+            />
+            <p class="caption">
+                OK Computer <span class="year">— Radiohead, 1997</span>
+            </p>
+            <p class="note">
+                The album that taught me how a record can feel like a cohesive
+                world rather than a collection of songs.
+            </p>
+        </a>
+        <a href="#">
+            <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music/7f/9f/d6/mzi.vtnaewef.jpg/600x600bb.jpg"
+                alt="Kind of Blue"
+                loading="lazy"
+            />
+            <p class="caption">
+                Kind of Blue <span class="year">— Miles Davis, 1959</span>
+            </p>
+        </a>
+        <a href="#">
+            <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/13/90/c0/1390c072-4249-3739-7b3d-fd73ee4a5698/825646562831.jpg/600x600bb.jpg"
+                alt="Unknown Pleasures"
+                loading="lazy"
+            />
+            <p class="caption">
+                Unknown Pleasures <span class="year">— Joy Division, 1979</span>
+            </p>
+            <p class="note">
+                Peter Saville's design is proof that the strongest visuals are
+                often the simplest.
+            </p>
+        </a>
+        <a href="#">
+            <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/fd/4a/77/fd4a77db-0ebc-d043-41a2-f32fa1bb0fb4/dj.qrikkdwj.jpg/600x600bb.jpg"
+                alt="Discovery"
+                loading="lazy"
+            />
+            <p class="caption">
+                Discovery <span class="year">— Daft Punk, 2001</span>
+            </p>
+        </a>
+        <a href="#">
+            <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music/0f/ab/11/mzi.rbmkwyoh.jpg/600x600bb.jpg"
+                alt="Loveless"
+                loading="lazy"
+            />
+            <p class="caption">
+                Loveless <span class="year">— My Bloody Valentine, 1991</span>
+            </p>
+            <p class="note">
+                The cover matches the music perfectly — blurred, visceral,
+                impossible to pin down.
+            </p>
+        </a>
+        <a href="#">
+            <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music114/v4/87/15/0b/87150bb6-ceb9-25d5-45bb-8e3012a54197/886447127655.jpg/600x600bb.jpg"
+                alt="In Rainbows"
+                loading="lazy"
+            />
+            <p class="caption">
+                In Rainbows <span class="year">— Radiohead, 2007</span>
+            </p>
+        </a>
+        <a href="#">
+            <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music128/v4/e5/54/4c/e5544cc6-56e4-03a3-5db2-1725b2e2ae28/5024545951428.jpg/600x600bb.jpg"
+                alt="Geogaddi"
+                loading="lazy"
+            />
+            <p class="caption">
+                Geogaddi <span class="year">— Boards of Canada, 2002</span>
+            </p>
+            <p class="note">
+                Nostalgia as a design language. The warm, worn aesthetic tells
+                you what the music sounds like before you press play.
+            </p>
+        </a>
+        <a href="#">
+            <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/bb/10/6d/bb106d07-6d7a-cea7-13d2-6f6e68d6afd0/075992524229.jpg/600x600bb.jpg"
+                alt="Doolittle"
+                loading="lazy"
+            />
+            <p class="caption">Doolittle <span class="year">— Pixies, 1989</span></p>
+        </a>
+        <a href="#">
+            <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/74/eb/42/74eb4287-1c3f-7c7f-28e4-78a78107adce/602537336470.jpg/600x600bb.jpg"
+                alt="Random Access Memories"
+                loading="lazy"
+            />
+            <p class="caption">
+                Random Access Memories <span class="year">— Daft Punk, 2013</span>
+            </p>
+            <p class="note">
+                The helmet. The gloves. The logo. An icon system so strong it
+                became instantly recognisable worldwide.
+            </p>
+        </a>
+    </div>
+
+    <footer>
+        <div class="separator">--- ✿ ---</div>
+        <div class="footer-content">
+            <span>&copy; 2026 Kitan</span>
+            <div class="social-nav">
+                <a href="index.html">Home</a>
+                <a href="portfolio.html">Programming</a>
+                <a href="music.html">Music</a>
+            </div>
+        </div>
+        <div class="footer-note">Light: #f8f8f8 | #fa9442 | #2a2d2e</div>
+        <div class="footer-note">Dark: #172713 | #fa9442 | #b5d1cc</div>
+        <div class="footer-note">Fonts: InterVCustom | Kitan Mono (Iosevka custom)</div>
+    </footer>
+    <button class="theme-toggle" id="dm" onclick="toggle()">☾</button>
+    <script>
+        const dm = document.getElementById("dm");
+        const h = document.documentElement;
+        if (localStorage.getItem("dark") === "1") h.classList.add("dark");
+        dm.textContent = h.classList.contains("dark") ? "☀" : "☾";
+        function toggle() {
+            h.classList.toggle("dark");
+            dm.textContent = h.classList.contains("dark") ? "☀" : "☾";
+            localStorage.setItem(
+                "dark",
+                h.classList.contains("dark") ? "1" : "0",
+            );
+        }
+    </script>
+</html>

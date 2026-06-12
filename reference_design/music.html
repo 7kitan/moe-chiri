@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Music — Kitan</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="oat-fonts.css">
+<link rel="stylesheet" href="global.css">
+<style>:root{--w:38rem}.date{margin:0 0 2rem}.release{border-top:1px solid var(--b)}.release+.release{border-top:none}.entry{padding:1.25rem 0}.video{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:6px;margin:0 0 .75rem}.video iframe{position:absolute;inset:0;width:100%;height:100%}.entry .title{font-family:var(--m);font-size:var(--fs);font-weight:var(--fw-b);color:var(--t);margin:0 0 .15rem}.entry .meta{font-family:var(--m);font-size:.6875rem;color:var(--a);margin:0 0 .3rem}.entry p{margin:0 0 .3rem;font-size:var(--fs)}.entry .links{margin:.4rem 0 0}.entry .links a{font-family:var(--m);font-size:.6875rem;color:var(--ts);text-decoration:none;margin-right:.75rem}.entry .links a:hover{color:var(--a)}.video{margin:1rem 0 0;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:6px}.video iframe{position:absolute;inset:0;width:100%;height:100%}</style>
+
+<header>
+  <a href="index.html" class="site-title">kitan</a>
+  <div class="separator">--- ✿ ---</div>
+  <nav>
+    <a href="music.html">Music</a>
+    <a href="art.html">Art</a>
+    <a href="portfolio.html">Programming</a>
+    <a href="index.html">Home</a>
+  </nav>
+</header>
+
+<h1>Music</h1>
+<p class="date">Releases, compositions, performances — 2023–2026</p>
+<div class="about"><p>All music released independently unless noted.</p></div>
+
+<div class="release">
+<div class="entry">
+  <div class="video"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Loom" frameborder="0" allow="fullscreen" loading="lazy"></iframe></div>
+  <div class="body">
+    <div class="title">Loom</div>
+    <div class="meta">EP — 2025</div>
+    <p>Four ambient pieces built from field recordings and analogue synthesis. Recorded in Reykjavík and Rotterdam.</p>
+    <div class="links">
+      <a href="#">Bandcamp</a>
+      <a href="#">Spotify</a>
+      <a href="#">Apple Music</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="release">
+<div class="entry">
+  <div class="video"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Pinhole" frameborder="0" allow="fullscreen" loading="lazy"></iframe></div>
+  <div class="body">
+    <div class="title">Pinhole</div>
+    <div class="meta">Cassette — 2024</div>
+    <p>Lo-fi beat tape recorded on a Tascam 424. Guitar, cassette loops, found sound. Limited edition of 50.</p>
+    <div class="links">
+      <a href="#">Bandcamp</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="release">
+<div class="entry">
+  <div class="video"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Signal / Noise" frameborder="0" allow="fullscreen" loading="lazy"></iframe></div>
+  <div class="body">
+    <div class="title">Signal / Noise</div>
+    <div class="meta">Split — 2025</div>
+    <p>Collaborative release with ds0. Generative electronics on side A, drone guitar on side B. Mastered by Anneka.</p>
+    <div class="links">
+      <a href="#">Bandcamp</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="release">
+<div class="entry">
+  <div class="video"><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Fugue State" frameborder="0" allow="fullscreen" loading="lazy"></iframe></div>
+  <div class="body">
+    <div class="title">Fugue State</div>
+    <div class="meta">Live Recording — 2026</div>
+    <p>28-minute modular improvisation recorded at The Wall, Rotterdam. Live take, no overdubs.</p>
+    <div class="links">
+      <a href="#">Listen</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <div class="separator">--- ✿ ---</div>
+  <div class="footer-content">
+    <span>&copy; 2026 Kitan</span>
+    <div class="social-nav">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Programming</a>
+      <a href="art.html">Art</a>
+    </div>
+  </div>
+  <div class="footer-note">Light: #f8f8f8 | #fa9442 | #2a2d2e</div>
+  <div class="footer-note">Dark: #172713 | #fa9442 | #b5d1cc</div>
+  <div class="footer-note">Fonts: InterVCustom | Kitan Mono (Iosevka custom)</div>
+</footer>
+<button class="theme-toggle" id="dm" onclick="toggle()">☾</button>
+<script>
+const dm = document.getElementById('dm');
+const h = document.documentElement;
+if (localStorage.getItem('dark') === '1') h.classList.add('dark');
+dm.textContent = h.classList.contains('dark') ? '☀' : '☾';
+function toggle() {
+  h.classList.toggle('dark');
+  dm.textContent = h.classList.contains('dark') ? '☀' : '☾';
+  localStorage.setItem('dark', h.classList.contains('dark') ? '1' : '0');
+}
+</script>
+</html>

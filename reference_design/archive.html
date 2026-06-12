@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archive — Kitan</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="oat-fonts.css">
+<link rel="stylesheet" href="global.css">
+<style>.post-list{padding:0;margin:0;list-style:none}.post-list a{display:flex;justify-content:space-between;align-items:center;gap:.5rem;padding:.45rem 0;text-decoration:none}.post-list a:hover .post-title{color:var(--a)}.post-title{font-size:var(--fs);color:var(--t);transition:color .12s}.post-dot{flex:1 1 auto;min-width:2rem;height:.5px;background:var(--b)}.post-date{font-family:var(--m);font-size:.75rem;color:var(--ts);flex-shrink:0;white-space:nowrap;font-variant-numeric:tabular-nums}@media(max-width:480px){.post-list a{flex-wrap:wrap;gap:.15rem}.post-title{flex-basis:100%}.post-dot{display:none}.post-date{font-size:.6875rem}}</style>
+
+<header>
+  <div class="separator">--- ✿ ---</div>
+  <nav><a href="index.html" style="font-family:var(--m);font-size:.8125rem;color:var(--ts);text-decoration:none">← Back</a></nav>
+</header>
+
+<h1>Archive</h1>
+<p class="date">All posts</p>
+
+<ul class="post-list">
+  <li><a href="writing-a-cli.html"><span class="post-title">Writing a CLI in Rust</span><div class="post-dot"></div><span class="post-date">2026.06.20</span></a></li>
+  <li><a href="#"><span class="post-title">The Web After 2026</span><div class="post-dot"></div><span class="post-date">2026.06.20</span></a></li>
+  <li><a href="#"><span class="post-title">Lessons from Building a Typeface</span><div class="post-dot"></div><span class="post-date">2026.06.18</span></a></li>
+  <li><a href="#"><span class="post-title">Why I Stopped Using Tailwind</span><div class="post-dot"></div><span class="post-date">2026.06.17</span></a></li>
+  <li><a href="#"><span class="post-title">Field Recording in Iceland</span><div class="post-dot"></div><span class="post-date">2026.06.15</span></a></li>
+  <li><a href="lorem-ipsum.html"><span class="post-title">The Metamorphosis</span><div class="post-dot"></div><span class="post-date">1915</span></a></li>
+  <li><a href="thinking-in-components.html"><span class="post-title">Thinking in Components</span><div class="post-dot"></div><span class="post-date">2026.06.14</span></a></li>
+  <li><a href="#"><span class="post-title">Cassette Culture in a Streaming World</span><div class="post-dot"></div><span class="post-date">2026.06.10</span></a></li>
+  <li><a href="#"><span class="post-title">On Creative Constraints</span><div class="post-dot"></div><span class="post-date">2026.06.07</span></a></li>
+  <li><a href="#"><span class="post-title">Tools That Stay Out of the Way</span><div class="post-dot"></div><span class="post-date">2026.06.03</span></a></li>
+  <li><a href="first-post.html"><span class="post-title">Starting a Blog</span><div class="post-dot"></div><span class="post-date">2025.07.30</span></a></li>
+</ul>
+
+<footer>
+  <div class="separator">--- ✿ ---</div>
+  <div class="footer-content">
+    <span>&copy; 2026 Kitan</span>
+    <div class="social-nav">
+      <a href="index.html">Home</a>
+    </div>
+  </div>
+  <div class="footer-note">Light: #f8f8f8 | #fa9442 | #2a2d2e</div>
+  <div class="footer-note">Dark: #172713 | #fa9442 | #b5d1cc</div>
+  <div class="footer-note">Fonts: InterVCustom | Kitan Mono (Iosevka custom)</div>
+</footer>
+<button class="theme-toggle" id="dm" onclick="toggle()">☾</button>
+<script>
+const dm = document.getElementById('dm');
+const h = document.documentElement;
+if (localStorage.getItem('dark') === '1') h.classList.add('dark');
+dm.textContent = h.classList.contains('dark') ? '☀' : '☾';
+function toggle() {
+  h.classList.toggle('dark');
+  dm.textContent = h.classList.contains('dark') ? '☀' : '☾';
+  localStorage.setItem('dark', h.classList.contains('dark') ? '1' : '0');
+}
+</script>
+</html>

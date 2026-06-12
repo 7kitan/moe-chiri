@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Writing a CLI in Rust — Kitan</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="oat-fonts.css">
+<link rel="stylesheet" href="global.css">
+<style>h2{margin:1.5em 0 .5em}.prose p{margin:0 0 .8em}</style>
+
+<header>
+  <div class="separator">--- ✿ ---</div>
+  <nav><a href="index.html" style="font-family:var(--m);font-size:.8125rem;color:var(--ts);text-decoration:none">← Back</a></nav>
+</header>
+
+<h1>Writing a CLI in Rust</h1>
+<p class="date"><time datetime="2026-06-20">2026.06.20</time></p>
+<div class="tags"><span>rust</span><span>cli</span><span>code</span></div>
+
+<div class="prose">
+<p>I recently wrote a CLI tool called Route for scaffolding projects. Here is a rough sketch of how it works — argument parsing, file generation, and error handling.</p>
+
+<h2>Argument Parsing</h2>
+<p>Using <code>clap</code> with derive macros keeps things declarative:</p>
+
+<pre><code class="language-rust">use clap::Parser;
+
+#[derive(Parser)]
+#[command(name = "route", about = "Scaffold a project")]
+struct Cli {
+    /// Project name
+    name: String,
+
+    /// Template to use
+    #[arg(short, long, default_value = "default")]
+    template: String,
+
+    /// Output directory
+    #[arg(short, long, default_value = ".")]
+    out: PathBuf,
+}</code></pre>
+
+<h2>Generating Files</h2>
+<p>Walking a template directory and rendering each file with basic variable substitution:</p>
+
+<pre><code class="language-rust">fn scaffold(tpl: &Path, out: &Path, name: &str) -> Result&lt;()&gt; {
+    for entry in WalkDir::new(tpl) {
+        let entry = entry?;
+        let rel = entry.path().strip_prefix(tpl)?;
+        let dest = out.join(rel);
+
+        if entry.file_type().is_dir() {
+            fs::create_dir_all(&dest)?;
+            continue;
+        }
+
+        let mut content = fs::read_to_string(entry.path())?;
+        content = content.replace("{{name}}", name);
+        content = content.replace("{{NAME}}", &name.to_uppercase());
+
+        fs::write(dest, content)?;
+    }
+    Ok(())
+}</code></pre>
+
+<h2>Error Handling</h2>
+<p>Rather than boxing errors everywhere, a custom error enum keeps things clean:</p>
+
+<pre><code class="language-rust">#[derive(Debug, thiserror::Error)]
+pub enum Error {
+    #[error("template not found: {0}")]
+    TemplateNotFound(PathBuf),
+    #[error("io error: {0}")]
+    Io(#[from] std::io::Error),
+    #[error("walk error: {0}")]
+    Walk(#[from] walkdir::Error),
+}
+
+type Result&lt;T&gt; = std::result::Result&lt;T, Error&gt;;</code></pre>
+
+<p>The full source is on <a href="#">GitHub</a>. About 300 lines in total, including tests.</p>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <span>&copy; 2026 Kitan</span>
+    <div class="social-nav">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Programming</a>
+    </div>
+  </div>
+  <div class="footer-note">ISO v0.6 · KitanMono · #FDFBF7 · #fa9442 · #2A2D2E</div>
+</footer>
+<button class="theme-toggle" id="dm" onclick="toggle()">☾</button>
+<script>
+const dm = document.getElementById('dm');
+const h = document.documentElement;
+if (localStorage.getItem('dark') === '1') h.classList.add('dark');
+dm.textContent = h.classList.contains('dark') ? '☀' : '☾';
+function toggle() {
+  h.classList.toggle('dark');
+  dm.textContent = h.classList.contains('dark') ? '☀' : '☾';
+  localStorage.setItem('dark', h.classList.contains('dark') ? '1' : '0');
+}
+</script>
+</html>

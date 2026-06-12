@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thinking in Components — Kitan</title>
+<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="stylesheet" href="oat-fonts.css">
+<link rel="stylesheet" href="global.css">
+
+<header>
+  <div class="separator">--- ✿ ---</div>
+  <nav><a href="index.html" style="font-family:var(--m);font-size:.8125rem;color:var(--ts);text-decoration:none">← Back</a></nav>
+</header>
+<h1>Thinking in Components</h1>
+<p class="date"><time datetime="2026-06-14">2026.06.14</time></p>
+<div class="tags"><span>design</span><span>oat-ui</span><span>code</span></div>
+
+<div class="prose">
+<p>A component is not a file. It is a boundary. The boundary between what changes together and what changes separately. Most teams get this wrong. They split by file type — <code>components/</code>, <code>hooks/</code>, <code>utils/</code> — instead of by responsibility.</p>
+
+<h2>The Wrong Abstraction</h2>
+<p>I have seen a <code>Button.tsx</code> with fifteen props. Variant, size, loading, iconLeft, iconRight, fullWidth, onClick, href, and seven more. That is not a component. That is a config file wearing a trench coat.</p>
+
+<p>A good component does one thing and hides the rest. It exposes a small surface area. You should be able to look at its props and understand what it does without reading the implementation.</p>
+
+<h2>Composition over Configuration</h2>
+<p>Oat UI takes this approach. Instead of a mega-<code>Select</code> with twenty props, you compose:</p>
+
+<pre><code class="language-jsx">&lt;Select.Root&gt;
+  &lt;Select.Trigger&gt;
+    &lt;Select.Value /&gt;
+  &lt;/Select.Trigger&gt;
+  &lt;Select.Content&gt;
+    &lt;Select.Item value="1"&gt;Option&lt;/Select.Item&gt;
+  &lt;/Select.Content&gt;
+&lt;/Select.Root&gt;</code></pre>
+
+<p>This pattern — borrowed from Radix — gives you control without overwhelm. Each sub-component owns its own styling and behaviour. You reach for what you need and leave the rest.</p>
+
+<blockquote><p>A component is a boundary. The boundary between what changes together and what changes separately.</p></blockquote>
+
+<h2>What You Own</h2>
+<p>The other principle is ownership. A component should own its state, its layout, and its side effects. If a concern leaks out — if the parent needs to know about inner DOM structure or internal state — the boundary is broken.</p>
+
+<p>I wrote about this in the Oat UI docs as the "three gates" rule: a component owns its data, its rendering, and its behaviour. Anything that crosses those gates should be explicit in the props.</p>
+
+<p>Components are not about reuse. They are about isolation. Reuse is a side effect.</p>
+</div>
+
+<footer>
+  <div class="separator">--- ✿ ---</div>
+  <div class="footer-content">
+    <span>&copy; 2026 Kitan</span>
+    <div class="social-nav">
+      <a href="index.html">Home</a>
+      <a href="portfolio.html">Programming</a>
+    </div>
+  </div>
+  <div class="footer-note">Light: #f8f8f8 | #fa9442 | #2a2d2e</div>
+  <div class="footer-note">Dark: #172713 | #fa9442 | #b5d1cc</div>
+  <div class="footer-note">Fonts: InterVCustom | Kitan Mono (Iosevka custom)</div>
+</footer>
+<button class="theme-toggle" id="dm" onclick="toggle()">☾</button>
+<script>
+const dm = document.getElementById('dm');
+const h = document.documentElement;
+if (localStorage.getItem('dark') === '1') h.classList.add('dark');
+dm.textContent = h.classList.contains('dark') ? '☀' : '☾';
+function toggle() {
+  h.classList.toggle('dark');
+  dm.textContent = h.classList.contains('dark') ? '☀' : '☾';
+  localStorage.setItem('dark', h.classList.contains('dark') ? '1' : '0');
+}
+</script>
+</html>
