@@ -1,0 +1,341 @@
+@font-face {
+    font-family: "ISO v0.6";
+    src: url("/fonts/iso/ISOv06-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ISO v0.6";
+    src: url("/fonts/iso/ISOv06-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ISO v0.6";
+    src: url("/fonts/iso/ISOv06-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "KitanMono";
+    src: url("/fonts/kitan_mono/KitanMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "KitanMono";
+    src: url("/fonts/kitan_mono/KitanMono-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "KitanMono";
+    src: url("/fonts/kitan_mono/KitanMono-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "KitanMono";
+    src: url("/fonts/kitan_mono/KitanMono-MediumItalic.woff2") format("woff2");
+    font-weight: 500;
+    font-style: italic;
+}
+
+:root {
+    --w: 36rem;
+    --s: "ISO v0.6", "KitanMono", sans-serif;
+    --m: "KitanMono", "ISO v0.6", monospace;
+    --fs: 0.9375rem;
+    --fw-l: 300;
+    --fw-r: 400;
+    --fw-b: 500;
+    --ss: 0;
+    --sm: 0;
+    --lh: 1.55;
+    --bg: #f8f8f8;
+    --a: #fa9442;
+    --t: rgba(42, 45, 46, 0.88);
+    --ts: rgba(42, 45, 46, 0.42);
+    --tt: rgba(42, 45, 46, 0.18);
+    --b: rgba(42, 45, 46, 0.08);
+}
+
+.dark {
+    --bg: #172713;
+    --t: rgba(181, 209, 204, 0.9);
+    --ts: rgba(181, 209, 204, 0.45);
+    --tt: rgba(181, 209, 204, 0.2);
+    --b: rgba(181, 209, 204, 0.1);
+}
+
+html {
+    background: var(--bg);
+}
+body {
+    margin: 0 auto;
+    padding: 4rem 1.5rem 2rem;
+    max-width: var(--w);
+    font-family: var(--s);
+    font-size: var(--fs);
+    line-height: var(--lh);
+    color: var(--t);
+    background: var(--bg);
+    text-wrap: pretty;
+}
+@media (max-width: 768px) {
+    body {
+        padding: 2.5rem 1.35rem 1.5rem;
+    }
+}
+
+a {
+    color: var(--a);
+    text-underline-offset: 2px;
+}
+a:hover {
+    color: var(--t);
+}
+
+header {
+    padding: 1.5rem 0 0;
+}
+header .separator {
+    font-family: var(--m);
+    font-size: 0.625rem;
+    color: var(--a);
+    letter-spacing: 0.15em;
+    margin: 0 0 0.75rem;
+}
+
+.site-title {
+    font-family: var(--m);
+    font-size: 1.1rem;
+    font-weight: var(--fw-b);
+    color: var(--t);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+}
+.site-title:hover {
+    color: var(--a);
+}
+
+nav {
+    display: flex;
+    gap: 1.25rem;
+    margin: 0.5rem 0 0;
+    flex-wrap: wrap;
+}
+nav a {
+    font-family: var(--m);
+    font-size: 0.8125rem;
+    color: var(--ts);
+    text-decoration: none;
+}
+nav a:hover {
+    color: var(--a);
+}
+
+h1 {
+    font-family: var(--m);
+    font-weight: var(--fw-b);
+    font-size: 1.35rem;
+    margin: 2rem 0 0.25em;
+    color: var(--a);
+    text-wrap: balance;
+}
+
+h2 {
+    font-family: var(--m);
+    font-weight: var(--fw-b);
+    font-size: 1.1rem;
+    margin: 1.5em 0 0.5em;
+    color: var(--a);
+    text-wrap: balance;
+}
+
+h3 {
+    font-family: var(--m);
+    font-weight: var(--fw-b);
+    font-size: 1rem;
+    margin: 1.25em 0 0.4em;
+    color: var(--a);
+    text-wrap: balance;
+}
+
+.date {
+    margin: 0 0 1.5em;
+    font-family: var(--m);
+    font-weight: var(--fw-l);
+    color: var(--ts);
+    opacity: 0.75;
+    font-variant-numeric: tabular-nums;
+    font-size: var(--fs);
+}
+
+.tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0 0 1.5em;
+}
+.tags span {
+    font-family: var(--m);
+    font-size: 0.75rem;
+    padding: 0.2em 0.6em;
+    border: 1px solid var(--b);
+    border-radius: 3px;
+    color: var(--ts);
+}
+
+.prose p {
+    margin: 0 0 1.55em;
+}
+.prose code {
+    font-family: var(--m);
+    font-size: 0.85em;
+    padding: 0.15em 0.35em;
+    background: var(--b);
+    border-radius: 3px;
+}
+.prose pre {
+    background: var(--b);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    overflow-x: auto;
+    margin: 0 0 0.8em;
+}
+.prose pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.85em;
+}
+.prose blockquote {
+  margin: 0 0 .8em;
+  padding: 0 1em;
+  border-left: 2px solid var(--b);
+  color: var(--t);
+  font-family: var(--m);
+  font-weight: 400;
+  font-style: italic;
+}
+.prose blockquote p {
+    margin: 0;
+}
+.prose hr {
+    border: none;
+    border-top: 1px solid var(--b);
+    margin: 1.5em 0;
+    opacity: 0.5;
+}
+.prose ul,
+.prose ol {
+    margin: 0 0 0.8em;
+    padding: 0 0 0 1.5em;
+}
+.prose li {
+    margin-bottom: 0.3em;
+}
+
+.section {
+    margin: 2.5rem 0 0;
+}
+.section h2 {
+    font-family: var(--m);
+    font-size: 0.8125rem;
+    font-weight: var(--fw-b);
+    color: var(--a);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin: 0 0 0.75rem;
+}
+
+.about {
+    margin: 0 0 1.5rem;
+}
+.about p {
+    margin: 0;
+    color: var(--ts);
+}
+
+footer {
+    margin: 4rem 0 0;
+    padding: 1.5rem 0 0;
+}
+footer .separator {
+    font-family: var(--m);
+    font-size: 0.625rem;
+    color: var(--tt);
+    letter-spacing: 0.15em;
+    margin: 0 0 0.75rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--m);
+    font-size: 0.75rem;
+    color: var(--ts);
+}
+@media (max-width: 480px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 0.35rem;
+        align-items: flex-start;
+    }
+}
+
+.footer-note {
+    margin-top: 0.75rem;
+    font-family: var(--m);
+    font-size: 0.625rem;
+    color: var(--ts);
+}
+.footer-note + .footer-note {
+    margin-top: 0.15rem;
+}
+
+.social-nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+footer .social-nav {
+    margin: 0;
+}
+.social-nav a {
+    font-family: var(--m);
+    font-size: 0.75rem;
+    color: var(--ts);
+    text-decoration: none;
+}
+.social-nav a:hover {
+    color: var(--a);
+}
+
+.theme-toggle {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 10;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: var(--bg);
+    border: 1px solid var(--b);
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--ts);
+    transition:
+        border-color 0.12s,
+        color 0.12s;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.theme-toggle:hover {
+    border-color: var(--a);
+    color: var(--a);
+}

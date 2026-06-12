@@ -1,3 +1,4 @@
 allowBuilds:
   esbuild: false
   sharp: false
+  ttf2woff2: true

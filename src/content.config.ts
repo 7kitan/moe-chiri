@@ -1,20 +1,48 @@
 import { defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
 
 const blog = defineCollection({
-	// Load Markdown and MDX files in the `src/content/blog/` directory.
 	loader: glob({ base: './src/content/blog', pattern: '**/*.{md,mdx}' }),
-	// Type-check frontmatter using a schema
-	schema: ({ image }) =>
-		z.object({
-			title: z.string(),
-			description: z.string(),
-			// Transform string to Date object
-			pubDate: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
-			heroImage: z.optional(image()),
-		}),
+	schema: z.object({
+		title: z.string(),
+		pubDate: z.coerce.date(),
+		updatedDate: z.coerce.date().optional(),
+		tags: z.array(z.string()).optional(),
+		heroImage: z.string().optional(),
+	}),
 });
 
-export const collections = { blog };
+const music = defineCollection({
+	loader: file('src/content/music/data.json'),
+	schema: z.object({
+		title: z.string(),
+		year: z.string(),
+		description: z.string(),
+		links: z.array(z.object({ label: z.string(), url: z.string() })),
+		embedUrl: z.string().optional(),
+		image: z.string().optional(),
+	}),
+});
+
+const art = defineCollection({
+	loader: file('src/content/art/data.json'),
+	schema: z.object({
+		title: z.string(),
+		artist: z.string(),
+		year: z.string(),
+		imageUrl: z.string(),
+		note: z.string().optional(),
+	}),
+});
+
+const code = defineCollection({
+	loader: file('src/content/code/data.json'),
+	schema: z.object({
+		title: z.string(),
+		tags: z.string(),
+		url: z.string().optional(),
+	}),
+});
+
+export const collections = { blog, music, art, code };

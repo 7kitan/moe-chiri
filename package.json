@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "new-post": "bash scripts/new-post.sh",
+    "deploy": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "@astrojs/mdx": "^6.0.3",
@@ -17,5 +19,8 @@
     "@astrojs/sitemap": "^3.7.3",
     "astro": "^6.4.6",
     "sharp": "^0.34.3"
+  },
+  "devDependencies": {
+    "ttf2woff2": "^8.0.1"
   }
 }

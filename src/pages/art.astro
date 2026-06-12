@@ -1,0 +1,94 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+const entries = await getCollection("art");
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title="Art — Kitan" />
+    </head>
+    <body>
+        <Header />
+
+        <h1>Art</h1>
+        <div class="about">
+            <p>stuff I draw</p>
+        </div>
+
+        {
+            entries.length > 0 ? (
+                <div class="grid">
+                    {entries.map((entry) => (
+                        <a href="#">
+                            <img
+                                src={entry.data.imageUrl}
+                                alt={entry.data.title}
+                                loading="lazy"
+                            />
+                            <p class="caption">
+                                {entry.data.title}{" "}
+                                <span class="year">
+                                    — {entry.data.artist}, {entry.data.year}
+                                </span>
+                            </p>
+                            {entry.data.note && (
+                                <p class="note">{entry.data.note}</p>
+                            )}
+                        </a>
+                    ))}
+                </div>
+            ) : (
+                <p>Nothing here yet!</p>
+            )
+        }
+
+        <Footer />
+        <ThemeToggle />
+    </body>
+</html>
+
+<style>
+    .grid {
+        column-count: 2;
+        column-gap: 1.5rem;
+    }
+    .grid a {
+        break-inside: avoid;
+        display: block;
+        margin: 0 0 1.5rem;
+        text-decoration: none;
+    }
+    .grid a:hover {
+        opacity: 0.8;
+    }
+    .grid img {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 4px;
+        display: block;
+        background: var(--b);
+    }
+    .grid .caption {
+        margin: 0.5em 0 0;
+        font-family: var(--m);
+        font-size: var(--fs);
+        color: var(--t);
+    }
+    .grid .year {
+        font-size: 0.75rem;
+        color: var(--ts);
+    }
+    .grid .note {
+        margin: 0.35em 0 0;
+        font-size: 0.8125rem;
+        color: var(--ts);
+        line-height: 1.5;
+    }
+</style>

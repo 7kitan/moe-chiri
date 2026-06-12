@@ -1,0 +1,83 @@
+---
+import { getCollection } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+const projects = await getCollection("code");
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title="Code - Kitan" />
+    </head>
+    <body>
+        <Header />
+
+        <h1>Code</h1>
+        <div class="about">
+            <p>really bad at writing code</p>
+        </div>
+
+        <ul class="list">
+            {
+                projects.map((project) => (
+                    <li>
+                        <a href={project.data.url || "#"}>
+                            <span class="l-title">{project.data.title}</span>
+                            <span class="l-tags">{project.data.tags}</span>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <Footer />
+        <ThemeToggle />
+    </body>
+</html>
+
+<style>
+    .list {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    .list li + li {
+        border-top: 1px solid var(--b);
+    }
+    .list a {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem 0;
+        text-decoration: none;
+    }
+    .list a:hover .l-title {
+        color: var(--a);
+    }
+    .l-title {
+        font-family: var(--m);
+        font-size: var(--fs);
+        color: var(--t);
+        transition: color 0.12s;
+    }
+    .l-tags {
+        font-family: var(--m);
+        font-size: 0.6875rem;
+        color: var(--ts);
+        flex-shrink: 0;
+    }
+    @media (max-width: 480px) {
+        .list a {
+            flex-wrap: wrap;
+            gap: 0.15rem;
+        }
+        .l-tags {
+            font-size: 0.625rem;
+        }
+    }
+</style>
