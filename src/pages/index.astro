@@ -40,7 +40,7 @@ const posts = (await getCollection("blog"))
                         />
                     ))}
                 </div>
-                <p style="margin-top: 0.25rem; font-family: var(--m); font-size: 0.75rem;">
+                <p class="view-all">
                     <a href="/music">View all →</a>
                 </p>
             </section>
@@ -50,9 +50,7 @@ const posts = (await getCollection("blog"))
     <section class="section" id="blog">
         <h2>✿ Posts</h2>
         <PostList posts={posts} />
-        <p
-            style="margin-top: 0.5rem; font-family: var(--m); font-size: 0.75rem;"
-        >
+        <p class="view-all">
             <a href="/archive">View all →</a>
         </p>
     </section>
@@ -68,5 +66,10 @@ const posts = (await getCollection("blog"))
     .music-list {
         display: grid;
         gap: 0.5rem;
+    }
+    .view-all {
+        font-family: var(--m);
+        font-size: var(--fs-sm);
+        margin-top: 0.5rem;
     }
 </style>
