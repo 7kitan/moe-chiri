@@ -1,5 +1,15 @@
 <header>
-    <a href="/" class="site-title">kitan's space travel</a>
+    <div class="header-top">
+        <a href="/" class="site-title">kitan's space travel</a>
+        <div class="header-controls">
+            <label class="header-toggle">
+                <input type="checkbox" id="dm" /> dark mode
+            </label>
+            <label class="header-toggle">
+                <input type="checkbox" id="sans-toggle" /> sans serif
+            </label>
+        </div>
+    </div>
     <div class="separator">--- ✿ ---</div>
     <nav>
         <a href="/music">Music</a>
@@ -8,3 +18,22 @@
         <a href="/archive">Blog</a>
     </nav>
 </header>
+<script>
+    const html = document.documentElement;
+
+    const dm = document.getElementById("dm");
+    if (!dm) throw new Error("dark mode toggle not found");
+    if (localStorage.getItem("dark") === "1") { html.classList.add("dark"); dm.checked = true; }
+    dm.addEventListener("change", () => {
+        html.classList.toggle("dark", dm.checked);
+        localStorage.setItem("dark", dm.checked ? "1" : "0");
+    });
+
+    const sansToggle = document.getElementById("sans-toggle");
+    if (!sansToggle) throw new Error("sans-serif toggle not found");
+    if (localStorage.getItem("sans") === "1") { html.classList.add("sans"); sansToggle.checked = true; }
+    sansToggle.addEventListener("change", () => {
+        html.classList.toggle("sans", sansToggle.checked);
+        localStorage.setItem("sans", sansToggle.checked ? "1" : "0");
+    });
+</script>

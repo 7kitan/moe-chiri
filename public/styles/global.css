@@ -30,6 +30,31 @@
     font-style: italic;
 }
 
+@font-face {
+    font-family: "PPMori";
+    src: url("/fonts/pp_mori/PPMori-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "PPMori";
+    src: url("/fonts/pp_mori/PPMori-Italic.woff2") format("woff2");
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: "PPMori";
+    src: url("/fonts/pp_mori/PPMori-Semibold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+}
+@font-face {
+    font-family: "PPMori";
+    src: url("/fonts/pp_mori/PPMori-SemiboldItalic.woff2") format("woff2");
+    font-weight: 600;
+    font-style: italic;
+}
+
 :root {
     --w: 36rem;
     --s: "ISO v0.6", "KitanMono", sans-serif;
@@ -55,6 +80,10 @@
     --ts: rgba(181, 209, 204, 0.45);
     --tt: rgba(181, 209, 204, 0.2);
     --b: rgba(181, 209, 204, 0.1);
+}
+
+.sans {
+    --s: "PPMori", "ISO v0.6", "KitanMono", sans-serif;
 }
 
 html {
@@ -92,6 +121,35 @@ a:hover {
 header {
     padding: 1.5rem 0 0;
 }
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.header-controls {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.header-toggle {
+    font-family: var(--m);
+    font-size: 0.75rem;
+    color: var(--ts);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.3em;
+    user-select: none;
+}
+.header-toggle:hover {
+    color: var(--a);
+}
+.header-toggle input[type="checkbox"] {
+    accent-color: var(--a);
+}
+
 header .separator {
     font-family: var(--m);
     font-size: 0.625rem;
@@ -306,28 +364,4 @@ footer .social-nav {
     color: var(--a);
 }
 
-.theme-toggle {
-    position: fixed;
-    bottom: 1.25rem;
-    right: 1.25rem;
-    z-index: 10;
-    width: 2.25rem;
-    height: 2.25rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1rem;
-    background: var(--bg);
-    border: 1px solid var(--b);
-    border-radius: 50%;
-    cursor: pointer;
-    color: var(--ts);
-    transition:
-        border-color 0.12s,
-        color 0.12s;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-.theme-toggle:hover {
-    border-color: var(--a);
-    color: var(--a);
-}
+
