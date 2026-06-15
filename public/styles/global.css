@@ -24,9 +24,54 @@
     font-style: italic;
 }
 
-@font-face { font-family: "Road UA"; src: url("/fonts/road_ua/RoadUA-Light.woff2") format("woff2"); font-weight: 300; font-style: normal; }
-@font-face { font-family: "Road UA"; src: url("/fonts/road_ua/RoadUA-Regular.woff2") format("woff2"); font-weight: 400; font-style: normal; }
-@font-face { font-family: "Road UA"; src: url("/fonts/road_ua/RoadUA-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; }
+@font-face {
+    font-family: "Road UA";
+    src: url("/fonts/road_ua/RoadUA-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Road UA";
+    src: url("/fonts/road_ua/RoadUA-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Road UA";
+    src: url("/fonts/road_ua/RoadUA-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@layer reset {
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        color-scheme: light dark;
+        -webkit-font-smoothing: antialiased;
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+        hanging-punctuation: first allow-end last;
+    }
+
+    ul,
+    ol,
+    dl {
+        list-style-position: inside;
+
+        ul,
+        ol,
+        dl {
+            padding-inline-start: 1lh;
+        }
+    }
+}
 
 :root {
     --w: 36rem;
@@ -62,9 +107,12 @@
     --s: "Road UA", "ISO v0.6", "KitanMono", sans-serif;
 }
 
+/* Base */
+
 html {
-    background: #0B1013;
+    background: #0b1013;
 }
+
 body {
     margin: 0 auto;
     padding: 4rem 1.5rem 2rem;
@@ -80,6 +128,7 @@ body {
     flex-direction: column;
     min-height: 100dvh;
 }
+
 @media (max-width: 768px) {
     body {
         padding: 2.5rem 1.35rem 1.5rem;
@@ -93,6 +142,39 @@ a {
 a:hover {
     color: var(--t);
 }
+
+p {
+    text-wrap: pretty;
+}
+
+@layer typography {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        text-wrap: balance;
+    }
+}
+
+h1 {
+    font-family: var(--m);
+    font-weight: var(--fw-b);
+    font-size: var(--fs-xl);
+    margin: 2rem 0 0;
+    color: var(--a);
+}
+
+h2 {
+    font-family: var(--m);
+    font-weight: var(--fw-b);
+    font-size: var(--fs-lg);
+    margin: 1.5em 0 0.5em;
+    color: var(--a);
+}
+
+/* Header & Nav */
 
 header {
     padding: 1.5rem 0 0;
@@ -162,29 +244,7 @@ nav a:hover {
     color: var(--a);
 }
 
-h1 {
-    font-family: var(--m);
-    font-weight: var(--fw-b);
-    font-size: var(--fs-xl);
-    margin: 2rem 0 0.25em;
-    color: var(--a);
-    text-wrap: balance;
-}
-
-h2 {
-    font-family: var(--m);
-    font-weight: var(--fw-b);
-    font-size: var(--fs-lg);
-    margin: 1.5em 0 0.5em;
-    color: var(--a);
-    text-wrap: balance;
-}
-
-    font-size: var(--fs);
-    margin: 1.25em 0 0.4em;
-    color: var(--a);
-    text-wrap: balance;
-}
+/* Blog */
 
 .date {
     margin: 0 0 1.5em;
@@ -196,6 +256,7 @@ h2 {
 }
 .date time {
     font-family: var(--m);
+    font-size: var(--fs-sm);
 }
 
 .tags {
@@ -236,13 +297,13 @@ h2 {
     font-size: 0.85em;
 }
 .prose blockquote {
-  margin: 0 0 .8em;
-  padding: 0 1em;
-  border-left: 2px solid var(--b);
-  color: var(--t);
-  font-family: var(--m);
-  font-weight: 400;
-  font-style: italic;
+    margin: 0 0 0.8em;
+    padding: 0 1em;
+    border-left: 2px solid var(--b);
+    color: var(--t);
+    font-family: var(--m);
+    font-weight: 400;
+    font-style: italic;
 }
 .prose blockquote p {
     margin: 0;
@@ -261,6 +322,8 @@ h2 {
 .prose li {
     margin-bottom: 0.3em;
 }
+
+/* Sections */
 
 .section {
     margin: 2.5rem 0 0;
@@ -282,6 +345,8 @@ h2 {
     margin: 0;
     color: var(--ts);
 }
+
+/* Footer */
 
 footer {
     margin: 4rem 0 0;
@@ -338,5 +403,3 @@ footer .social-nav {
 .social-nav a:hover {
     color: var(--a);
 }
-
-

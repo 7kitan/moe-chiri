@@ -6,5 +6,10 @@ import { defineConfig } from 'astro/config';
 
 export default defineConfig({
 	site: 'https://kitan.moe',
+	markdown: {
+		shikiConfig: {
+			theme: 'ayu-dark',
+		},
+	},
 	integrations: [mdx(), sitemap()],
 });
