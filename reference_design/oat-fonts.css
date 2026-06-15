@@ -97,51 +97,15 @@
 }
 
 @font-face {
-    font-family: "PPMori";
-    src: url("pp_mori/PPMori-Extralight.otf") format("opentype");
-    font-weight: 200;
+    font-family: "InterVariable";
+    src: url("inter/InterVariable.woff2") format("woff2");
+    font-weight: 100 900;
     font-style: normal;
 }
 @font-face {
-    font-family: "PPMori";
-    src: url("pp_mori/PPMori-ExtralightItalic.otf") format("opentype");
-    font-weight: 200;
-    font-style: italic;
-}
-@font-face {
-    font-family: "PPMori";
-    src: url("pp_mori/PPMori-Regular.otf") format("opentype");
-    font-weight: 400;
-    font-style: normal;
-}
-@font-face {
-    font-family: "PPMori";
-    src: url("pp_mori/PPMori-Italic.otf") format("opentype");
-    font-weight: 400;
-    font-style: italic;
-}
-@font-face {
-    font-family: "PPMori";
-    src: url("pp_mori/PPMori-Semibold.otf") format("opentype");
-    font-weight: 600;
-    font-style: normal;
-}
-@font-face {
-    font-family: "PPMori";
-    src: url("pp_mori/PPMori-SemiboldItalic.otf") format("opentype");
-    font-weight: 600;
-    font-style: italic;
-}
-@font-face {
-    font-family: "PPMori";
-    src: url("pp_mori/PPMori-Black.otf") format("opentype");
-    font-weight: 900;
-    font-style: normal;
-}
-@font-face {
-    font-family: "PPMori";
-    src: url("pp_mori/PPMori-BlackItalic.otf") format("opentype");
-    font-weight: 900;
+    font-family: "InterVariable";
+    src: url("inter/InterVariable-Italic.woff2") format("woff2");
+    font-weight: 100 900;
     font-style: italic;
 }
 

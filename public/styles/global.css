@@ -31,31 +31,20 @@
 }
 
 @font-face {
-    font-family: "PPMori";
-    src: url("/fonts/pp_mori/PPMori-Regular.woff2") format("woff2");
-    font-weight: 400;
+    font-family: "InterVariable";
+    src: url("/fonts/inter/InterVariable.woff2") format("woff2");
+    font-weight: 100 900;
     font-style: normal;
 }
 @font-face {
-    font-family: "PPMori";
-    src: url("/fonts/pp_mori/PPMori-Italic.woff2") format("woff2");
-    font-weight: 400;
-    font-style: italic;
-}
-@font-face {
-    font-family: "PPMori";
-    src: url("/fonts/pp_mori/PPMori-Semibold.woff2") format("woff2");
-    font-weight: 600;
-    font-style: normal;
-}
-@font-face {
-    font-family: "PPMori";
-    src: url("/fonts/pp_mori/PPMori-SemiboldItalic.woff2") format("woff2");
-    font-weight: 600;
+    font-family: "InterVariable";
+    src: url("/fonts/inter/InterVariable-Italic.woff2") format("woff2");
+    font-weight: 100 900;
     font-style: italic;
 }
 
 :root {
+    font-feature-settings: "cv05" 1, "cv08" 1, "liga" 1, "calt" 1;
     --w: 36rem;
     --s: "ISO v0.6", "KitanMono", sans-serif;
     --m: "KitanMono", "ISO v0.6", monospace;
@@ -83,7 +72,7 @@
 }
 
 .sans {
-    --s: "PPMori", "ISO v0.6", "KitanMono", sans-serif;
+    --s: "InterVariable", "ISO v0.6", "KitanMono", sans-serif;
 }
 
 html {
