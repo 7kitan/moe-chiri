@@ -32,7 +32,10 @@
     --w: 36rem;
     --s: "ISO v0.6", "KitanMono", sans-serif;
     --m: "KitanMono", "ISO v0.6", monospace;
-    --fs: 0.9375rem;
+    --fs: 1rem;
+    --fs-sm: 0.875rem;
+    --fs-lg: 1.1rem;
+    --fs-xl: 1.35rem;
     --fw-l: 300;
     --fw-r: 400;
     --fw-b: 400;
@@ -108,7 +111,7 @@ header {
 
 .header-toggle {
     font-family: var(--m);
-    font-size: 0.75rem;
+    font-size: var(--fs-sm);
     color: var(--ts);
     cursor: pointer;
     display: flex;
@@ -125,7 +128,7 @@ header {
 
 header .separator {
     font-family: var(--m);
-    font-size: 0.625rem;
+    font-size: var(--fs-sm);
     color: var(--a);
     letter-spacing: 0.15em;
     margin: 0 0 0.75rem;
@@ -133,7 +136,7 @@ header .separator {
 
 .site-title {
     font-family: var(--m);
-    font-size: 1.1rem;
+    font-size: var(--fs-lg);
     font-weight: var(--fw-b);
     color: var(--t);
     text-decoration: none;
@@ -151,7 +154,7 @@ nav {
 }
 nav a {
     font-family: var(--m);
-    font-size: 0.8125rem;
+    font-size: var(--fs-sm);
     color: var(--ts);
     text-decoration: none;
 }
@@ -162,7 +165,7 @@ nav a:hover {
 h1 {
     font-family: var(--m);
     font-weight: var(--fw-b);
-    font-size: 1.35rem;
+    font-size: var(--fs-xl);
     margin: 2rem 0 0.25em;
     color: var(--a);
     text-wrap: balance;
@@ -171,16 +174,13 @@ h1 {
 h2 {
     font-family: var(--m);
     font-weight: var(--fw-b);
-    font-size: 1.1rem;
+    font-size: var(--fs-lg);
     margin: 1.5em 0 0.5em;
     color: var(--a);
     text-wrap: balance;
 }
 
-h3 {
-    font-family: var(--m);
-    font-weight: var(--fw-b);
-    font-size: 1rem;
+    font-size: var(--fs);
     margin: 1.25em 0 0.4em;
     color: var(--a);
     text-wrap: balance;
@@ -188,12 +188,14 @@ h3 {
 
 .date {
     margin: 0 0 1.5em;
-    font-family: var(--m);
     font-weight: var(--fw-l);
     color: var(--ts);
     opacity: 0.75;
     font-variant-numeric: tabular-nums;
-    font-size: var(--fs);
+    font-size: var(--fs-sm);
+}
+.date time {
+    font-family: var(--m);
 }
 
 .tags {
@@ -204,7 +206,7 @@ h3 {
 }
 .tags span {
     font-family: var(--m);
-    font-size: 0.75rem;
+    font-size: var(--fs-sm);
     padding: 0.2em 0.6em;
     border: 1px solid var(--b);
     border-radius: 3px;
@@ -265,7 +267,7 @@ h3 {
 }
 .section h2 {
     font-family: var(--m);
-    font-size: 0.8125rem;
+    font-size: var(--fs-sm);
     font-weight: var(--fw-b);
     color: var(--a);
     letter-spacing: 0.05em;
@@ -287,7 +289,7 @@ footer {
 }
 footer .separator {
     font-family: var(--m);
-    font-size: 0.625rem;
+    font-size: var(--fs-sm);
     color: var(--tt);
     letter-spacing: 0.15em;
     margin: 0 0 0.75rem;
@@ -298,7 +300,7 @@ footer .separator {
     justify-content: space-between;
     align-items: center;
     font-family: var(--m);
-    font-size: 0.75rem;
+    font-size: var(--fs-sm);
     color: var(--ts);
 }
 @media (max-width: 480px) {
@@ -312,7 +314,7 @@ footer .separator {
 .footer-note {
     margin-top: 0.75rem;
     font-family: var(--m);
-    font-size: 0.625rem;
+    font-size: var(--fs-sm);
     color: var(--ts);
 }
 .footer-note + .footer-note {
@@ -329,7 +331,7 @@ footer .social-nav {
 }
 .social-nav a {
     font-family: var(--m);
-    font-size: 0.75rem;
+    font-size: var(--fs-sm);
     color: var(--ts);
     text-decoration: none;
 }
