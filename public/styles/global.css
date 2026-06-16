@@ -25,28 +25,28 @@
 }
 
 @font-face {
-    font-family: "Rubik";
-    src: url("/fonts/rubik/Rubik-Regular.woff2") format("woff2");
+    font-family: "Atkinson Hyperlegible Next";
+    src: url("/fonts/atkinson_hyperlegible_next/AtkinsonHyperlegibleNext-Light.woff2") format("woff2");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Atkinson Hyperlegible Next";
+    src: url("/fonts/atkinson_hyperlegible_next/AtkinsonHyperlegibleNext-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
 }
 @font-face {
-    font-family: "Rubik";
-    src: url("/fonts/rubik/Rubik-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
+    font-family: "Atkinson Hyperlegible Next";
+    src: url("/fonts/atkinson_hyperlegible_next/AtkinsonHyperlegibleNext-LightItalic.woff2") format("woff2");
+    font-weight: 300;
+    font-style: italic;
 }
 @font-face {
-    font-family: "Road UA";
-    src: url("/fonts/road_ua/RoadUA-Regular.woff2") format("woff2");
+    font-family: "Atkinson Hyperlegible Next";
+    src: url("/fonts/atkinson_hyperlegible_next/AtkinsonHyperlegibleNext-RegularItalic.woff2") format("woff2");
     font-weight: 400;
-    font-style: normal;
-}
-@font-face {
-    font-family: "Road UA";
-    src: url("/fonts/road_ua/RoadUA-Bold.woff2") format("woff2");
-    font-weight: 700;
-    font-style: normal;
+    font-style: italic;
 }
 
 @layer reset, base, components;
@@ -84,7 +84,7 @@
 
 :root {
     --w: 36rem;
-    --s: "Rubik", "ISO v0.6", "KitanMono", sans-serif;
+    --s: "Atkinson Hyperlegible Next", "ISO v0.6", "KitanMono", sans-serif;
     --m: "KitanMono", "ISO v0.6", monospace;
     --fs: 1rem;
     --fs-sm: 0.875rem;
