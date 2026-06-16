@@ -6,7 +6,7 @@
                 <input type="checkbox" id="dm" /> dark mode
             </label>
             <label class="header-toggle">
-                <input type="checkbox" id="sans-toggle" /> sans serif
+                <input type="checkbox" id="mono-toggle" /> mono font
             </label>
         </div>
     </div>
@@ -32,14 +32,14 @@
         localStorage.setItem("dark", dm.checked ? "1" : "0");
     });
 
-    const sansToggle = document.getElementById("sans-toggle");
-    if (!sansToggle) throw new Error("sans-serif toggle not found");
-    if (localStorage.getItem("sans") === "1") {
-        html.classList.add("sans");
-        sansToggle.checked = true;
+    const monoToggle = document.getElementById("mono-toggle");
+    if (!monoToggle) throw new Error("mono font toggle not found");
+    if (localStorage.getItem("mono") === "1") {
+        html.classList.add("mono");
+        monoToggle.checked = true;
     }
-    sansToggle.addEventListener("change", () => {
-        html.classList.toggle("sans", sansToggle.checked);
-        localStorage.setItem("sans", sansToggle.checked ? "1" : "0");
+    monoToggle.addEventListener("change", () => {
+        html.classList.toggle("mono", monoToggle.checked);
+        localStorage.setItem("mono", monoToggle.checked ? "1" : "0");
     });
 </script>
