@@ -92,9 +92,9 @@
     --fs-xl: 1.35rem;
     --fw-l: 300;
     --fw-b: 400;
-    --lh: 1.55;
+    --lh: 1.5;
     --bg: #f8f8f8;
-    --a: #fa9442;
+    --a: #b84d00;
     --t: rgba(42, 45, 46, 0.88);
     --ts: rgba(42, 45, 46, 0.42);
     --tt: rgba(42, 45, 46, 0.18);
@@ -103,6 +103,7 @@
 
 .dark {
     --bg: #172713;
+    --a: #fa9442;
     --t: rgba(181, 209, 204, 0.9);
     --ts: rgba(181, 209, 204, 0.45);
     --tt: rgba(181, 209, 204, 0.2);
@@ -173,7 +174,7 @@
         font-family: var(--m);
         font-weight: var(--fw-b);
         font-size: var(--fs-lg);
-        margin: 1.5em 0 0.5em;
+        margin: 1.5em 0 0;
         color: var(--a);
     }
 }
@@ -276,7 +277,7 @@
     }
 
     .prose p {
-        margin: 0 0 1.55em;
+        margin: 0.75em 0 0.75em 0;
     }
     .prose code {
         font-family: var(--m);
@@ -319,9 +320,6 @@
     .prose ol {
         margin: 0 0 0.8em;
         padding: 0 0 0 1.5em;
-    }
-    .prose li {
-        margin-bottom: 0.3em;
     }
     .prose figure {
         margin: 1.5em 0;
