@@ -11,7 +11,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "new-post": "bash scripts/new-post.sh",
-    "deploy": "bash scripts/deploy.sh"
+    "publish": "bash scripts/deploy.sh"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^7.2.1",

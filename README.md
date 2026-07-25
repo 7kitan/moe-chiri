@@ -1,11 +1,10 @@
 ## scripts
 
     pnpm new-post "Post Title"   — create a new blog post with YYMMDD prefix
-    pnpm deploy                  — build + deploy to Cloudflare Workers
+    pnpm publish                    — build + deploy to Cloudflare Workers
 
 ## deploy
 
-    pnpm run build
-    npx wrangler deploy
+    pnpm run publish
 
-Requires `npx wrangler login` first.
+Runs `astro build` then `npx wrangler deploy`. Requires `npx wrangler login` first.
