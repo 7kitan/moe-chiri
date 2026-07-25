@@ -12,4 +12,10 @@ const posts = (await getCollection("blog")).sort(
     <h1>Archive</h1>
 
     <PostList posts={posts} />
+
+<style>
+    h1 {
+        margin-bottom: 0.3rem;
+    }
+</style>
 </BasePage>

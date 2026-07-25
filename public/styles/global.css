@@ -1,27 +1,9 @@
 @font-face {
-    font-family: "ISO v0.6";
-    src: url("/fonts/iso/ISOv06-Light.woff2") format("woff2");
-    font-weight: 300;
-    font-style: normal;
-}
-@font-face {
-    font-family: "ISO v0.6";
-    src: url("/fonts/iso/ISOv06-Regular.woff2") format("woff2");
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
     font-family: "KitanMono";
     src: url("/fonts/kitan_mono/KitanMono-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
-}
-@font-face {
-    font-family: "KitanMono";
-    src: url("/fonts/kitan_mono/KitanMono-Italic.woff2") format("woff2");
-    font-weight: 400;
-    font-style: italic;
+    font-display: optional;
 }
 
 @font-face {
@@ -29,24 +11,14 @@
     src: url("/fonts/atkinson_hyperlegible_next/AtkinsonHyperlegibleNext-Light.woff2") format("woff2");
     font-weight: 300;
     font-style: normal;
+    font-display: optional;
 }
 @font-face {
     font-family: "Atkinson Hyperlegible Next";
     src: url("/fonts/atkinson_hyperlegible_next/AtkinsonHyperlegibleNext-Regular.woff2") format("woff2");
     font-weight: 400;
     font-style: normal;
-}
-@font-face {
-    font-family: "Atkinson Hyperlegible Next";
-    src: url("/fonts/atkinson_hyperlegible_next/AtkinsonHyperlegibleNext-LightItalic.woff2") format("woff2");
-    font-weight: 300;
-    font-style: italic;
-}
-@font-face {
-    font-family: "Atkinson Hyperlegible Next";
-    src: url("/fonts/atkinson_hyperlegible_next/AtkinsonHyperlegibleNext-RegularItalic.woff2") format("woff2");
-    font-weight: 400;
-    font-style: italic;
+    font-display: optional;
 }
 
 @layer reset, base, components;
@@ -84,8 +56,8 @@
 
 :root {
     --w: 36rem;
-    --s: "Atkinson Hyperlegible Next", "ISO v0.6", "KitanMono", sans-serif;
-    --m: "KitanMono", "ISO v0.6", monospace;
+    --s: "Atkinson Hyperlegible Next", "KitanMono", sans-serif;
+    --m: "KitanMono", monospace;
     --fs: 1rem;
     --fs-sm: 0.875rem;
     --fs-lg: 1.1rem;
@@ -111,7 +83,7 @@
 }
 
 .mono {
-    --s: "ISO v0.6", "KitanMono", monospace;
+    --s: "KitanMono", monospace;
 }
 
 @layer base {
