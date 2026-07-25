@@ -36,13 +36,4 @@ const art = defineCollection({
 	}),
 });
 
-const code = defineCollection({
-	loader: file('src/content/code/data.json'),
-	schema: z.object({
-		title: z.string(),
-		tags: z.string(),
-		url: z.string().optional(),
-	}),
-});
-
-export const collections = { blog, music, art, code };
+export const collections = { blog, music, art };

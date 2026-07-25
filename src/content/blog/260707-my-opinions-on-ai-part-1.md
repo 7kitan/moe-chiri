@@ -1,7 +1,7 @@
 ---
 title: "My opinions on AI - Part 1: Brain dump"
 pubDate: '2026-07-07'
-tags: ["computers", "AI"]
+tags: ["computers", "ai"]
 ---
 
 It's been about 4 years since the introduction of ChatGPT, and the time since has been such a whirlwind.

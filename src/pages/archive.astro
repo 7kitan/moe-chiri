@@ -22,8 +22,6 @@ for (const post of posts) {
 
 <BasePage title="Archive — Kitan">
     <h1>Archive</h1>
-    <p class="archive-subtitle">Every entry in order</p>
-
     {
         [...byYear.entries()].map(([year, monthMap]) => (
             [...monthMap.entries()].map(([month, monthPosts]) => (
@@ -44,12 +42,7 @@ for (const post of posts) {
     h1 {
         margin-bottom: 0.15rem;
     }
-    .archive-subtitle {
-        font-family: var(--m);
-        font-size: var(--fs-sm);
-        color: var(--ts);
-        margin: 0 0 1.5rem;
-    }
+
     .archive-group + .archive-group {
         margin-top: 1.25rem;
     }
