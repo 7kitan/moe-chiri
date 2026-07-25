@@ -131,22 +131,34 @@
     h4,
     h5,
     h6 {
+        font-family: var(--m);
+        font-weight: var(--fw-b);
         text-wrap: balance;
     }
 
     h1 {
-        font-family: var(--m);
-        font-weight: var(--fw-b);
-        font-size: var(--fs-xl);
+        font-size: 1.3rem;
         margin: 2rem 0 0;
         color: var(--a);
     }
 
     h2 {
-        font-family: var(--m);
-        font-weight: var(--fw-b);
-        font-size: var(--fs-lg);
+        font-size: 1.15rem;
         margin: 1.5em 0 0;
+        color: var(--a);
+    }
+
+    h3 {
+        font-size: 1rem;
+        margin: 1.2em 0 0;
+        color: var(--a);
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-size: 0.95rem;
+        margin: 1em 0 0;
         color: var(--a);
     }
 }

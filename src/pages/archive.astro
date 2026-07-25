@@ -1,21 +1,77 @@
 ---
 import { getCollection } from "astro:content";
 import BasePage from "../layouts/BasePage.astro";
-import PostList from "../components/PostList.astro";
 
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const MONTHS = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"];
+
+const byYear = new Map();
+for (const post of posts) {
+    const d = post.data.pubDate;
+    const y = d.getFullYear();
+    const m = d.getMonth();
+    if (!byYear.has(y)) byYear.set(y, new Map());
+    const mm = byYear.get(y);
+    if (!mm.has(m)) mm.set(m, []);
+    mm.get(m).push(post);
+}
 ---
 
 <BasePage title="Archive — Kitan">
     <h1>Archive</h1>
 
-    <PostList posts={posts} />
+    {
+        [...byYear.entries()].map(([year, monthMap]) => (
+            [...monthMap.entries()].map(([month, monthPosts]) => (
+                <div class="archive-group">
+                    <h2 class="archive-heading">{year} {MONTHS[month]}</h2>
+                    <ul class="archive-list">
+                        {monthPosts.map(post => (
+                            <li><a href={"/blog/" + post.id + "/"}>{post.data.title}</a></li>
+                        ))}
+                    </ul>
+                </div>
+            ))
+        ))
+    }
+</BasePage>
 
 <style>
     h1 {
         margin-bottom: 0.3rem;
     }
+    .archive-group + .archive-group {
+        margin-top: 1.25rem;
+    }
+    .archive-heading {
+        font-family: var(--m);
+        font-size: var(--fs-sm);
+        font-weight: var(--fw-b);
+        color: var(--a);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin: 0 0 0.4rem;
+    }
+    .archive-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .archive-list li + li {
+        margin-top: 0.15rem;
+    }
+    .archive-list a {
+        font-size: var(--fs);
+        color: var(--t);
+        text-decoration: none;
+        display: block;
+        padding: 0.15rem 0;
+    }
+    .archive-list a:hover {
+        color: var(--a);
+    }
 </style>
-</BasePage>
