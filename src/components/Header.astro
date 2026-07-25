@@ -5,9 +5,6 @@
             <label class="header-toggle">
                 <input type="checkbox" id="dm" /> dark mode
             </label>
-            <label class="header-toggle">
-                <input type="checkbox" id="mono-toggle" /> mono font
-            </label>
         </div>
     </div>
     <div class="separator">--- ✿ ---</div>
@@ -30,16 +27,5 @@
     dm.addEventListener("change", () => {
         html.classList.toggle("dark", dm.checked);
         localStorage.setItem("dark", dm.checked ? "1" : "0");
-    });
-
-    const monoToggle = document.getElementById("mono-toggle");
-    if (!monoToggle) throw new Error("mono font toggle not found");
-    if (localStorage.getItem("mono") === "1") {
-        html.classList.add("mono");
-        monoToggle.checked = true;
-    }
-    monoToggle.addEventListener("change", () => {
-        html.classList.toggle("mono", monoToggle.checked);
-        localStorage.setItem("mono", monoToggle.checked ? "1" : "0");
     });
 </script>
