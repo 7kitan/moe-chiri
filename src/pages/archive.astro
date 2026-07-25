@@ -6,8 +6,7 @@ const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-const MONTHS = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"];
+
 
 const byYear = new Map();
 for (const post of posts) {
@@ -28,7 +27,7 @@ for (const post of posts) {
         [...byYear.entries()].map(([year, monthMap]) => (
             [...monthMap.entries()].map(([month, monthPosts]) => (
                 <div class="archive-group">
-                    <h2 class="archive-heading">{year} {MONTHS[month]}</h2>
+                    <h2 class="archive-heading">{year}/{String(month + 1).padStart(2, "0")}</h2>
                     <ul class="archive-list">
                         {monthPosts.map(post => (
                             <li><a href={"/blog/" + post.id + "/"}>{post.data.title}</a></li>
