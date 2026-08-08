@@ -21,7 +21,7 @@ for (const post of posts) {
 ---
 
 <BasePage title="Archive — Kitan">
-    <h1>Archive</h1>
+    <h1 class="archive-title">Archive</h1>
     {
         [...byYear.entries()].map(([year, monthMap]) => (
             [...monthMap.entries()].map(([month, monthPosts]) => (
@@ -39,6 +39,9 @@ for (const post of posts) {
 </BasePage>
 
 <style>
+    .archive-title {
+        margin-bottom: 1.5rem;
+    }
     .archive-group + .archive-group {
         margin-top: 1.25rem;
     }

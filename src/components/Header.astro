@@ -1,11 +1,6 @@
 <header>
     <div class="header-top">
         <a href="/" class="site-title">kitan's space travel</a>
-        <div class="header-controls">
-            <label class="header-toggle">
-                <input type="checkbox" id="dm" /> dark mode
-            </label>
-        </div>
     </div>
     <div class="separator">--- ✿ ---</div>
     <nav>
@@ -14,17 +9,3 @@
         <a href="/colophon">Colophon</a>
     </nav>
 </header>
-<script>
-    const html = document.documentElement;
-
-    const dm = document.getElementById("dm");
-    if (!dm) throw new Error("dark mode toggle not found");
-    if (localStorage.getItem("dark") === "1") {
-        html.classList.add("dark");
-        dm.checked = true;
-    }
-    dm.addEventListener("change", () => {
-        html.classList.toggle("dark", dm.checked);
-        localStorage.setItem("dark", dm.checked ? "1" : "0");
-    });
-</script>
